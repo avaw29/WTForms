@@ -1,0 +1,13 @@
+{% block content %}
+  <h1>iTunes Form</h1>
+  <form method="POST" action="http://localhost:5000/itunes-result">
+      {{ form.hidden_tag() }}
+      {% for message in get_flashed_messages() %}
+      {{ message }}
+      {% endfor %}
+      {% for item in res %}
+          <li> <h2> Track Name: {{ item['trackName'] }} </h2>
+            <h3> Collection Name: {{ item['collectionName'] }} </h3> </li>
+      {% endfor %}
+  </form>
+{% endblock %}
